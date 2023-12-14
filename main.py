@@ -12,10 +12,10 @@ def home():
 @app.route('/calculate', methods=['GET'])
 def search():
     args = request.args
-    title = args.get("title", default="", type=str)
+    title_idx = args.get("title_idx", default="", type=str)
     experience = args.get("experience", default=0, type=int)
-    gender = args.get("gender", default="other", type=str)
-    country = args.get("country", default="", type=str)
-    education = args.get("education", default="", type=str)
-    range = calculate_salary(title, experience, gender, country, education)
+    gender_idx = args.get("gender_idx", default="", type=str)
+    country_idx = args.get("country_idx", default="", type=str)
+    education_idx = args.get("education_idx", default="", type=str)
+    range = calculate_salary(title_idx, experience, gender_idx, country_idx, education_idx)
     return range
